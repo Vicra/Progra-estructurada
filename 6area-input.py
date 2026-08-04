@@ -1,9 +1,9 @@
 # Entrada
-base = float(input("Ingrese el valor de base: "))
-height = float(input("Ingrese el valor de height: "))
+_base = float(input("Ingrese el valor de base: "))
+_height = float(input("Ingrese el valor de height: "))
 
 # Proceso
-area = base * height
+_area = _base * _height
 
 # Salida
-print("Area:", area)
+print("Area:", _area)
