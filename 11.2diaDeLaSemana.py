@@ -23,24 +23,26 @@ while True:
   print("7 → Domingo")
   print("8 → Salir del Sistema")
 
-  opcion = int(input("Ingrese el numero del dia: "))
+  opcion = input("Ingrese el numero del dia: ")
 
-  if opcion == 1:
-    print("Lunes")
-  elif opcion == 2:
-    print("Martes")
-  elif opcion == 3:
-    print("Miercoles")
-  elif opcion == 4:
-    print("Jueves")
-  elif opcion == 5:
-    print("Viernes")
-  elif opcion == 6:
-    print("Sabado")
-  elif opcion == 7:
-    print("Domingo")
-  elif opcion == 8:
-    break;
-  else:
-    print("Dia invalid")
+  # switch statement
+  match opcion:
+    case 1:
+      print ("Lunes")
+    case 2:
+      print ("Martes")
+    case 3:
+      print ("Miercoles")
+    case 4:
+      print ("Jueves")
+    case 5:
+      print ("Viernes")
+    case 6:
+      print ("Sabado")
+    case 7:
+      print ("Domingo")
+    case 8:
+      break
+    case _:
+      print("Numero invalido")
   

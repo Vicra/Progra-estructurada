@@ -5,10 +5,10 @@
 
 # Muestra un menú:
 
-# 1. Sumar
-# 2. Restar
-# 3. Multiplicar
-# 4. Dividir
+# A. Sumar
+# B. Restar
+# C. Multiplicar
+# D. Dividir
 
 # Según la opción elegida realiza la operación utilizando switch.
 
@@ -43,3 +43,6 @@ match opcion:
     print("Mult:", a*b)
   case _:
     print("Input invalido")
+
+
+# "b" == "B"?
