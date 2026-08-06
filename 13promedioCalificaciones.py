@@ -35,6 +35,11 @@ promedio = acumulador / periodos
 
 print("El promedio es: ", promedio)
 
+# promedio 64.5
+if promedio >= 64.5 and promedio < 65:
+  promedio = math.ceil(promedio)
+  print("Nuevo promedio con math.ceil: ", promedio)
+
 if promedio >= 65:
   print("Excelente Felicidades Aprobo")
 else:
