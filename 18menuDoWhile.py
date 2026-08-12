@@ -1,9 +1,9 @@
-
-OPCION_SALIDA = 4
 opcion = -1
 
-# ciclo -> while
-while opcion != OPCION_SALIDA:
+OPCION_SALIDA = 4
+
+# ciclo -> do-while
+while True:
   print("MENU")
   print("1. Opcion A")
   print("2. Opcion B")
@@ -21,8 +21,6 @@ while opcion != OPCION_SALIDA:
       print("Opcion C")
     case 4:
       print("Adios")
+      break
     case _:
       print("Opcion invalida, ingrese valor dentro del rango")
-
-
-print("Fuera del ciclo")
