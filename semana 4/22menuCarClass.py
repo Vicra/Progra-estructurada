@@ -1,12 +1,22 @@
 # Desarrollar un 'sistema de gestion de carros'
-# Los carros solamente tienen nombre, guardar la informacion en un arreglo/lista
+# Los carros tienen marca, modelo, año; guardar la informacion en un arreglo/lista
 # Mostrar menu con opciones de 
 # 1. Ver lista de carros
-# 2. Agregar carro (solicita el nombre del carro, lo agrega al final)
+# 2. Agregar carro (solicita el marca, modelo, año del carro, lo agrega al final)
 # 3. Eliminar carro (solicita el indice del carro a borrar, no muestra indices en 0)
 # 0. Salir
 
-carros = ["Honda CRV 2020", "Toyota RAV4 2020", "Honda Civic 2024", "Ford Ranger 2025"]
+class Car:
+  # constructor: funcion que se ejecuta cuando se crea la instancia
+  def __init__(self, brand, model, year):
+    self.brand = brand
+    self.model = model
+    self.year = year
+
+carros = [
+  Car("Ford", "Escape", 2012),
+  Car("Toyota", "RAV4", 2026)
+]
 
 OPCION_SALIDA = 0
 # inicializarlo
@@ -32,7 +42,7 @@ while opcion != OPCION_SALIDA:
         print("No hay carros en este momento")
       else:
         for i in range(len(carros)):
-          print(i + 1, carros[i])
+          print(i + 1, carros[i].brand, carros[i].model, carros[i].year)
     case 2:
       print("")
       print("AGREGAR UN CARRO")
