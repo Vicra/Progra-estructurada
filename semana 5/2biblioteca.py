@@ -1,4 +1,5 @@
 class Book:
+  # definiendo el constructor
   def __init__(self, title, author, year, isbn):
     self.title = title
     self.author = author
@@ -31,6 +32,7 @@ while True:
       isbn = int(input("Insert books ISBN: "))
 
       books.append(
+        # llamar al constructor
         Book(
           title, author, year, isbn
         )
