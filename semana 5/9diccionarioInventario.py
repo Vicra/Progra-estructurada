@@ -60,6 +60,15 @@ inventario2 = {
     "fechaExpiracion": "09/15/2026"
   }
 }
+# 2da Manera de Hacer el Print
+print ("\nSEGUNDA MANERA DE IMPRIMIR")
+for key, value in inventario2.items():
+  print("\nSKU:", key)
+  for key2, value2 in inventario2[key].items():
+    print(key2, ":", value2)
+  
+
+
 
 # 1er Manera de Hacer el Print
 # for sku, product in inventario2.items():
@@ -69,10 +78,3 @@ inventario2 = {
 #   print("Stock: ", product["cantidad"])
 #   print("Categoria: ", product["categoria"])
 #   print("Marca: ", product["marca"])
-
-# 2da Manera de Hacer el Print
-print ("\nSEGUNDA MANERA DE IMPRIMIR")
-for key, value in inventario2.items():
-  print("\nSKU:", key)
-  for key2, value2 in inventario2[key].items():
-    print(key2, ":", value2)
