@@ -10,13 +10,14 @@ from matplotlib import pyplot as plt
 languages = ["Python", "JavaScript", "Java", "C++"]
 
 # Cantidad de estudiantes que eligieron cada lenguaje
-students = [40, 30, 20, 10]
+students = [13, 14, 50, 3]
 
 # Crear gráfico circular
 plt.pie(
     students,
     labels=languages,
-    autopct="%1.1f%%"
+    autopct="%1.2f%%",
+    explode=[0.1,0,0,0]
 )
 
 # Agregar título

@@ -5,27 +5,41 @@
 # ============================================================
 
 from matplotlib import pyplot as plt
+import random
 
-# Categorías
-products = ["Laptop", "Mouse", "Teclado", "Monitor"]
+colors = [
+  "red", "green", "blue", "yellow", "darkblue", "cyan", "pink",
+  "purple", "black", "orange"
+]
+colorIndex = random.randint(0,9)
 
-# Cantidad vendida de cada producto
-sales = [15, 30, 22, 10]
+xValues = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio"]
+yValues = []
+for i in range(len(xValues)):
+  yValues.append(random.randint(1, 100))
 
-# Crear gráfico de barras
-plt.bar(products, sales)
+barType = random.randint(0,1)
+if barType == 0:
+  plt.bar(xValues, yValues, color=colors[colorIndex], width=0.6)
+  plt.text("Febrero", yValues[2], "Indicador")
+else:
+  plt.barh(xValues, yValues, color=colors[colorIndex])
+  plt.annotate("Annotate", (3, 4))
 
-# Título
-plt.title("Ventas de productos")
+plt.title("Ventas por Mes")
+plt.xlabel("Meses")
+plt.ylabel("Ventas")
 
-# Etiqueta del eje X
-plt.xlabel("Producto")
+plt.grid(True)
 
-# Etiqueta del eje Y
-plt.ylabel("Cantidad vendida")
-
-# Mostrar gráfico
 plt.show()
+
+
+
+
+
+
+
 
 
 # ------------------------------------------------------------
