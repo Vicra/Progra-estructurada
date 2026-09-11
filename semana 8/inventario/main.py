@@ -1,36 +1,56 @@
 from archivos import leer_productos
 from archivos import escribir_producto
+from productos import mostrar_productos
+from productos import mostrar_producto
+from productos import ingresar_producto
+from productos import buscar_productos_id
+from productos import buscar_productos_categoria
+from productos import modificar_producto
 
-while True:
-  print("MENU")
-  print("1. Listar productos")
-  print("2. Agregar productos")
-  print("0. SALIR")
+# declaracion de la funcion
+def mostrar_menu():
+  while True:
+    print("="*38)
+    print("         MENU")
+    print("="*38)
+    print("1. Listar productos")
+    print("2. Agregar productos")
+    print("3. Buscar productos por id")
+    print("4. Buscar productos por categoria")
+    print("5. Modificar un producto")
+    print("0. SALIR")
 
-  opcion = int(input("Ingrese una opcion"))
+    opcion = int(input("Ingrese una opcion:"))
 
-  match opcion:
-    case 1:
-      productos = leer_productos()
-      for line in productos:
-        print("Id:", line["id"])
-        print("Product name:", line["producto"])
-        print("Product Stock", line["stock"])
-        print("Product Price:", line["precio"])
-        print("="*38)
+    match opcion:
+      case 1:
+        products = leer_productos()
+        # llamado de la funcion 
+        mostrar_productos(products)
+      case 2:
+        product = ingresar_producto()
+        escribir_producto(product)
+      case 3:
+        products = leer_productos()
+        productoExiste = buscar_productos_id(products)
 
-    case 2:
-      id = int(input("Ingrese el Id:"))
-      productName = input("Ingrese el nombre del producto:")
-      stock = int(input("Ingrese el stock del producto:"))
-      price = float(input("Ingrese el precio del producto:"))
+        if productoExiste:
+          mostrar_producto(productoExiste)
+        else:
+          print("No existe un producto con ese id")
+      case 4:
+        products = leer_productos()
+        productosFiltrados = buscar_productos_categoria(products)
+        if productosFiltrados == []:
+          print("No hay resultados")
+        else:
+          mostrar_productos(productosFiltrados)
+      case 5:
+        modificar_producto()
+      case 0:
+        break
+      case _:
+        print("Opcion invalida")
 
-      product = {
-        "id": id, 
-        "product": productName, 
-        "stock": stock, 
-        "price": price
-      }
-
-      escribir_producto(product) 
-      # escribir_producto(id, productName, stock, price) 
+# llamada de la funcion
+mostrar_menu()

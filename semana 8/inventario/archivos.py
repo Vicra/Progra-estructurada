@@ -11,7 +11,7 @@ def leer_productos():
       productos.append(
         line
       )
-
+  
   return productos
 
 
@@ -20,7 +20,20 @@ def escribir_producto(product):
       "a", encoding="utf-8", newline="") as archivo:
 
       writer = csv.DictWriter(archivo, fieldnames=[
-        "id","product","stock","price"
+        "id","product","category","stock","price", 
       ])
 
       writer.writerow(product)
+
+def guardar_productos(products):
+   with open(Path(__file__).with_name("inventario.csv"), 
+    "w", encoding="utf-8", newline="") as archivo:
+      writer = csv.DictWriter(
+         archivo,
+         fieldnames=[
+            "id", "producto", "categoria", "stock", "precio"
+         ]
+      )
+
+      writer.writeheader()
+      writer.writerows(products)
