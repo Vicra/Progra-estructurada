@@ -16,8 +16,31 @@ productos = {
     }
 }
 
+ordenes = {
+    "1": {
+      "nombreCliente": "Juan Perez",
+      "detalle": [
+            {
+                "id": "P001",
+                "nombre": "Laptop",
+                "cantidad": 1,
+                "precio": 850.00,
+                "subtotal": 850.00
+            },
+            {
+                "id": "P002",
+                "nombre": "Mouse",
+                "cantidad": 2,
+                "precio": 25.00,
+                "subtotal": 50.00
+            }
+        ],
+        "total": 900.00
+    },
+}
+
 from productos import mostrar_productos
-from productos import realizar_venta
+from productos import realizar_venta_main
 # ========= TIENDA =========
 # 1. Mostrar productos
 # 2. Buscar producto
@@ -39,6 +62,6 @@ while True:
 
   match option:
     case 1:
-      mostrar_productos(productos)
+        mostrar_productos(productos)
     case 3:
-      realizar_venta(productos)
+        realizar_venta_main(ordenes, productos)
