@@ -37,10 +37,31 @@ ordenes = {
         ],
         "total": 900.00
     },
+    "2": {
+        "nombreCliente": "Juan Perez",
+        "detalle": [
+            {
+                "id": "P001",
+                "nombre": "Laptop",
+                "cantidad": 2,
+                "precio": 850.00,
+                "subtotal": 850.00
+            },
+            {
+                "id": "P002",
+                "nombre": "Mouse",
+                "cantidad": 3,
+                "precio": 25.00,
+                "subtotal": 50.00
+            }
+        ],
+        "total": 900.00
+    },
 }
 
 from productos import mostrar_productos
 from productos import realizar_venta_main
+from ordenes import mostrar_resumen
 # ========= TIENDA =========
 # 1. Mostrar productos
 # 2. Buscar producto
@@ -57,6 +78,8 @@ while True:
   print("=====TIENDA=====")
   print("1. Mostrar producto")
   print("3. Realizar venta")
+  print("4. Mostrar Resumen de Ventas")
+  print("5. Mostrar producto más vendido")
 
   option = int(input("Ingrese una opcion:"))
 
@@ -65,3 +88,27 @@ while True:
         mostrar_productos(productos)
     case 3:
         realizar_venta_main(ordenes, productos)
+    case 4:
+        mostrar_resumen(ordenes)
+    case 5:
+        productosVendidos = {}
+        for orden in ordenes.keys():
+           print(f"orden: {orden}")
+           for product in ordenes[orden]["detalle"]:
+            #   print(f"Producto: {product["nombre"]} {product["cantidad"]}")
+
+            # print(f"Processing... {product["id"]}")
+            # print(productosVendidos.get(product["id"]))
+
+            # si no existe en el diccionario, lo agrego
+            if productosVendidos.get(product["id"]) == None:
+               productosVendidos[product["id"]] = product["cantidad"]
+            else:
+               print(f"id {product["id"]}")
+               print(f"value {productosVendidos[product["id"]]}")
+               print(f"cantidad {product["cantidad"]}")
+               # ya existe un item en la lista de vendidos
+               # productosVendidos[product["id"]] = productosVendidos[product["id"]] + product["cantidad"]
+               productosVendidos[product["id"]] += product["cantidad"]
+            
+        print(productosVendidos)
